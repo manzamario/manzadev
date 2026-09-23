@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3F5KX9SV7D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-3F5KX9SV7D');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ManzaDev – Desarrollo de Software profesional a medida. Aplicaciones web, móviles y sistemas empresariales con tecnología de vanguardia." />
+  <meta name="keywords" content="desarrollo de software, aplicaciones web, programación, ManzaDev, sistemas a medida" />
+  <meta property="og:title" content="ManzaDev | Desarrollo de Software" />
+  <meta property="og:description" content="Transformamos ideas en soluciones digitales de impacto. Desarrollo web, móvil y sistemas empresariales." />
+  <meta property="og:image" content="logo.png" />
+  <title>ManzaDev | Desarrollo de Software</title>
+  <link rel="icon" href="logo.png" type="image/png" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  
+  <!-- PROMO BANNER 2026 -->
+  <div id="promo-banner" class="promo-banner">
+    <div class="banner-content">
+      <span class="banner-badge">🎁 PROMO 2026</span>
+      <p>¡Lanzamiento Especial! 🚀 <strong>15% OFF</strong> en tu primer Chatbot con IA este mes.</p>
+      <button id="promo-cta" class="banner-btn">Me interesa</button>
+    </div>
+    <button id="close-banner" class="close-banner">&times;</button>
+  </div>
+
+  <!-- ========== CANVAS BG ========== -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <img src="logo.png" alt="ManzaDev Logo" class="logo-img" />
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#servicios" class="nav-link">Servicios</a></li>
+        <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+        <li><a href="#tecnologias" class="nav-link">Tecnologías</a></li>
+        <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+        <li><a href="#contacto" class="nav-link nav-cta">Contactar</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Disponible para nuevos proyectos
+      </div>
+      <h1 class="hero-title">
+        Convertimos tus <span class="gradient-text" id="typed-text"></span><span class="cursor">|</span>
+        <br/>en soluciones digitales
+      </h1>
+      <p class="hero-subtitle">
+        Desarrollamos software a medida que impulsa tu negocio. Desde aplicaciones web y móviles hasta sistemas empresariales complejos — con código limpio, diseño moderno y entrega puntual.
+      </p>
+      <div class="hero-actions">
+        <a href="#proyectos" class="btn btn-primary">
+          <i class="fas fa-rocket"></i> Ver Proyectos
+        </a>
+        <a href="#contacto" class="btn btn-outline">
+          <i class="fas fa-paper-plane"></i> Hablemos
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number" data-target="30">0</span><span class="stat-suffix">+</span>
+          <span class="stat-label">Proyectos</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number" data-target="15">0</span><span class="stat-suffix">+</span>
+          <span class="stat-label">Clientes</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number" data-target="3">0</span><span class="stat-suffix">+</span>
+          <span class="stat-label">Años exp.</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="code-window">
+        <div class="window-bar">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="window-title">manzadev.js</span>
+        </div>
+        <pre class="code-content"><code id="code-animation"></code></pre>
+      </div>
+      <div class="glow-orb orb-cyan"></div>
+      <div class="glow-orb orb-orange"></div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICIOS ========== -->
+  <section class="section" id="servicios">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Lo que hacemos</span>
+        <h2 class="section-title">Nuestros <span class="gradient-text">Servicios</span></h2>
+        <p class="section-subtitle">Soluciones tecnológicas completas adaptadas a cada necesidad</p>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card" data-aos="fade-up">
+          <div class="service-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <h3>Desarrollo Web</h3>
+          <p>Sitios y aplicaciones web modernas, rápidas y responsivas. Desde landing pages hasta plataformas complejas con paneles de administración.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check"></i> React / Next.js / Vue</li>
+            <li><i class="fas fa-check"></i> Node.js / PHP / Python</li>
+            <li><i class="fas fa-check"></i> E-commerce & CMS</li>
+          </ul>
+          <div class="service-hover-effect"></div>
+        </div>
+
+        <div class="service-card featured" data-aos="fade-up" data-aos-delay="100">
+          <div class="featured-badge">Popular</div>
+          <div class="service-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3>Apps Móviles</h3>
+          <p>Aplicaciones nativas y multiplataforma para iOS y Android con experiencias de usuario excepcionales y rendimiento óptimo.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check"></i> React Native / Flutter</li>
+            <li><i class="fas fa-check"></i> UI/UX Premium</li>
+            <li><i class="fas fa-check"></i> Publicación en stores</li>
+          </ul>
+          <div class="service-hover-effect"></div>
+        </div>
+
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-icon">
+            <i class="fas fa-server"></i>
+          </div>
+          <h3>Sistemas Empresariales</h3>
+          <p>Software de gestión a medida: ERP, CRM, sistemas de facturación, stock e inventario adaptados a tu flujo de trabajo.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check"></i> Bases de datos robustas</li>
+            <li><i class="fas fa-check"></i> APIs REST & GraphQL</li>
+            <li><i class="fas fa-check"></i> Reportes & Analytics</li>
+          </ul>
+          <div class="service-hover-effect"></div>
+        </div>
+
+        <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3>Inteligencia Artificial</h3>
+          <p>Integración de IA en tus procesos: chatbots inteligentes, automatización, análisis de datos y modelos de machine learning.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check"></i> Chatbots & Asistentes</li>
+            <li><i class="fas fa-check"></i> Automatización de procesos</li>
+            <li><i class="fas fa-check"></i> Análisis predictivo</li>
+          </ul>
+          <div class="service-hover-effect"></div>
+        </div>
+
+        <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Seguridad & Optimización</h3>
+          <p>Auditorías de seguridad, optimización de rendimiento y mantenimiento preventivo para mantener tu software siempre en forma.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check"></i> Pruebas de penetración</li>
+            <li><i class="fas fa-check"></i> Optimización SEO técnico</li>
+            <li><i class="fas fa-check"></i> Soporte continuo</li>
+          </ul>
+          <div class="service-hover-effect"></div>
+        </div>
+
+        <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+          <div class="service-icon">
+            <i class="fas fa-cloud"></i>
+          </div>
+          <h3>Cloud & DevOps</h3>
+          <p>Despliegue, configuración y gestión de infraestructura en la nube. CI/CD, contenedores y escalabilidad automática.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check"></i> AWS / GCP / Vercel</li>
+            <li><i class="fas fa-check"></i> Docker & Kubernetes</li>
+            <li><i class="fas fa-check"></i> CI/CD Pipelines</li>
+          </ul>
+          <div class="service-hover-effect"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROYECTOS ========== -->
+  <section class="section section-dark" id="proyectos">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Portafolio</span>
+        <h2 class="section-title">Proyectos <span class="gradient-text">Destacados</span></h2>
+        <p class="section-subtitle">Algunos de los trabajos que nos enorgullecen</p>
+      </div>
+    </div>
+    <div class="projects-scroll-wrapper">
+      <div class="projects-track" id="projects-track">
+
+        <div class="project-card">
+          <div class="project-img-wrapper">
+            <div class="project-img p1">
+              <i class="fas fa-store project-icon-big"></i>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-tag">E-commerce</span>
+            <h3>Tienda Online Veterinaria</h3>
+            <p>Plataforma completa con gestión de stock, citas online, historial de mascotas y sistema de facturación.</p>
+            <div class="project-tech">
+              <span>PHP</span><span>MySQL</span><span>JS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img-wrapper">
+            <div class="project-img p2">
+              <i class="fas fa-chalkboard-teacher project-icon-big"></i>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-tag">Educación</span>
+            <h3>Plataforma para Docentes</h3>
+            <p>Asistente con IA que genera material didáctico, planificaciones y documentos educativos descargables.</p>
+            <div class="project-tech">
+              <span>Next.js</span><span>AI</span><span>Node</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img-wrapper">
+            <div class="project-img p3">
+              <i class="fas fa-cash-register project-icon-big"></i>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-tag">Sistema de gestión</span>
+            <h3>Sistema de Ventas Desktop</h3>
+            <p>App de escritorio Windows para gestión de ventas, clientes, facturación con formato argentino y reportes.</p>
+            <div class="project-tech">
+              <span>PHP</span><span>SQLite</span><span>Desktop</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img-wrapper">
+            <div class="project-img p4">
+              <i class="fas fa-paw project-icon-big"></i>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-tag">Web corporativa</span>
+            <h3>Web Veterinaria "Pocas Pulgas"</h3>
+            <p>Landing page atractiva con catálogo de productos, animación horizontal y sistema de contacto.</p>
+            <div class="project-tech">
+              <span>HTML</span><span>CSS</span><span>JS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img-wrapper">
+            <div class="project-img p5">
+              <i class="fas fa-robot project-icon-big"></i>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-tag">Inteligencia Artificial</span>
+            <h3>Chatbot Empresarial</h3>
+            <p>Asistente virtual inteligente integrado en sitio web para atención al cliente 24/7 con respuestas contextuales.</p>
+            <div class="project-tech">
+              <span>Python</span><span>OpenAI</span><span>API</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img-wrapper">
+            <div class="project-img p6">
+              <i class="fas fa-chart-line project-icon-big"></i>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-tag">Dashboard</span>
+            <h3>Panel de Analytics</h3>
+            <p>Dashboard interactivo con gráficos en tiempo real, métricas de negocio y reportes exportables en PDF/Excel.</p>
+            <div class="project-tech">
+              <span>React</span><span>Chart.js</span><span>REST</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <i class="fas fa-arrow-right"></i> Deslizá para ver más proyectos
+    </div>
+  </section>
+
+  <!-- ========== TECNOLOGIAS ========== -->
+  <section class="section" id="tecnologias">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Nuestro stack</span>
+        <h2 class="section-title">Tecnologías que <span class="gradient-text">dominamos</span></h2>
+        <p class="section-subtitle">Usamos las herramientas correctas para cada trabajo</p>
+      </div>
+      <div class="tech-grid">
+        <div class="tech-item" title="JavaScript">
+          <i class="fab fa-js-square"></i>
+          <span>JavaScript</span>
+        </div>
+        <div class="tech-item" title="React">
+          <i class="fab fa-react"></i>
+          <span>React</span>
+        </div>
+        <div class="tech-item" title="Node.js">
+          <i class="fab fa-node-js"></i>
+          <span>Node.js</span>
+        </div>
+        <div class="tech-item" title="Python">
+          <i class="fab fa-python"></i>
+          <span>Python</span>
+        </div>
+        <div class="tech-item" title="PHP">
+          <i class="fab fa-php"></i>
+          <span>PHP</span>
+        </div>
+        <div class="tech-item" title="HTML5">
+          <i class="fab fa-html5"></i>
+          <span>HTML5</span>
+        </div>
+        <div class="tech-item" title="CSS3">
+          <i class="fab fa-css3-alt"></i>
+          <span>CSS3</span>
+        </div>
+        <div class="tech-item" title="Git">
+          <i class="fab fa-git-alt"></i>
+          <span>Git</span>
+        </div>
+        <div class="tech-item" title="Database">
+          <i class="fas fa-database"></i>
+          <span>MySQL / SQLite</span>
+        </div>
+        <div class="tech-item" title="Docker">
+          <i class="fab fa-docker"></i>
+          <span>Docker</span>
+        </div>
+        <div class="tech-item" title="AWS">
+          <i class="fab fa-aws"></i>
+          <span>AWS / Cloud</span>
+        </div>
+        <div class="tech-item" title="Android">
+          <i class="fab fa-android"></i>
+          <span>React Native</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== NOSOTROS ========== -->
+  <section class="section section-dark" id="nosotros">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text" data-aos="fade-right">
+          <span class="section-tag">Quiénes somos</span>
+          <h2 class="section-title">Pasión por el código,<br/><span class="gradient-text">obsesión por los resultados</span></h2>
+          <p>En <strong>ManzaDev</strong> somos técnicos en Desarrollo de Software con experiencia real construyendo soluciones que funcionan. No prometemos, entregamos.</p>
+          <p>Trabajamos con metodologías ágiles, comunicación transparente y foco absoluto en los objetivos de cada cliente. Cada línea de código tiene un propósito.</p>
+          <div class="about-values">
+            <div class="value-item">
+              <div class="value-icon"><i class="fas fa-bolt"></i></div>
+              <div>
+                <h4>Entrega Rápida</h4>
+                <p>Sprints cortos con resultados visibles desde el primer día.</p>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-icon"><i class="fas fa-lock"></i></div>
+              <div>
+                <h4>Código Seguro</h4>
+                <p>Buenas prácticas de seguridad en cada proyecto.</p>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-icon"><i class="fas fa-headset"></i></div>
+              <div>
+                <h4>Soporte Real</h4>
+                <p>Acompañamiento post-entrega sin costo adicional.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-visual" data-aos="fade-left">
+          <div class="profile-card">
+            <div class="profile-glow"></div>
+            <img src="logo.png" alt="ManzaDev" class="profile-logo" />
+            <h3>ManzaDev</h3>
+            <p>Técnico en Desarrollo de Software</p>
+            <div class="profile-tags">
+              <span>Full Stack</span>
+              <span>Mobile Dev</span>
+              <span>AI Integration</span>
+              <span>Cloud</span>
+            </div>
+            <div class="profile-social">
+              <a href="#contacto" aria-label="Contacto"><i class="fas fa-envelope"></i></a>
+              <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+              <a href="https://wa.me/5493725430303?text=Hola%20ManzaDev%21%20Me%20interesa%20iniciar%20un%20proyecto." aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROCESO ========== -->
+  <section class="section" id="proceso">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Cómo trabajamos</span>
+        <h2 class="section-title">Nuestro <span class="gradient-text">Proceso</span></h2>
+        <p class="section-subtitle">De la idea al producto final, paso a paso</p>
+      </div>
+      <div class="process-steps">
+        <div class="step" data-aos="fade-up">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <h3><i class="fas fa-comments"></i> Consulta</h3>
+            <p>Analizamos tus necesidades, objetivos y presupuesto. Primera reunión sin costo.</p>
+          </div>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step" data-aos="fade-up" data-aos-delay="100">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <h3><i class="fas fa-pencil-ruler"></i> Diseño</h3>
+            <p>Creamos wireframes y prototipos para validar la idea antes de programar.</p>
+          </div>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step" data-aos="fade-up" data-aos-delay="200">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <h3><i class="fas fa-code"></i> Desarrollo</h3>
+            <p>Programamos con metodología ágil, entregas parciales y comunicación constante.</p>
+          </div>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step" data-aos="fade-up" data-aos-delay="300">
+          <div class="step-number">04</div>
+          <div class="step-content">
+            <h3><i class="fas fa-rocket"></i> Lanzamiento</h3>
+            <p>Desplegamos, capacitamos y brindamos soporte para que todo funcione perfecto.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TESTIMONIOS ========== -->
+  <section class="section section-dark" id="testimonios">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Prueba Social</span>
+        <h2 class="section-title">Lo que dicen <span class="gradient-text">de nosotros</span></h2>
+        <p class="section-subtitle">La confianza de nuestros clientes es nuestro mayor activo</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card" data-aos="fade-up">
+          <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+          <p>"ManzaDev transformó nuestro sistema de ventas. Pasamos de planillas Excel a un sistema automatizado que nos ahorra 10 horas semanales."</p>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <strong>Ricardo Gómez</strong>
+              <span>Dueño de Veterinaria</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+          <p>"Excelente atención y velocidad de respuesta. El asistente con IA que desarrollaron para mis clases es simplemente espectacular."</p>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <strong>Dra. Elena Martínez</strong>
+              <span>Docente Universitaria</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+          <p>"Buscábamos una app móvil robusta y cumplieron con creces. El diseño es intuitivo y la performance en Android es perfecta."</p>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <strong>Marcos Ruiz</strong>
+              <span>CEO de TechFlow</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA BANNER ========== -->
+  <section class="cta-banner">
+    <div class="cta-bg-grid"></div>
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Tenés una idea? <span class="gradient-text">Hagámosla realidad.</span></h2>
+        <p>Contanos tu proyecto y te damos una cotización en 24 horas. Sin compromiso.</p>
+        <a href="#contacto" class="btn btn-primary btn-lg">
+          <i class="fas fa-rocket"></i> Iniciar Proyecto
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Dudas comunes</span>
+        <h2 class="section-title">Preguntas <span class="gradient-text">Frecuentes</span></h2>
+      </div>
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">¿Cuánto tiempo tarda el desarrollo? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">Depende de la complejidad. Una landing page puede estar lista en 1 semana, mientras que un sistema empresarial puede llevar de 4 a 12 semanas.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">¿El código me pertenece al finalizar? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">Sí, el compromiso de ManzaDev es total transparencia. Una vez finalizado el proyecto, el código fuente es propiedad exclusiva del cliente.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">¿Ofrecen soporte post-entrega? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">Absolutamente. Todos nuestros desarrollos incluyen 3 meses de soporte gratuito para corrección de errores y consultas técnicas.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">¿Cómo se realizan los pagos? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">Generalmente trabajamos con un 50% de anticipo y el resto contra entrega o hitos alcanzados, adaptándonos a la comodidad de cada cliente.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACTO ========== -->
+  <section class="section" id="contacto">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Hablemos</span>
+        <h2 class="section-title">¿Listo para <span class="gradient-text">empezar</span>?</h2>
+        <p class="section-subtitle">Respondemos en menos de 24 horas</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+            <div>
+              <h4>WhatsApp</h4>
+              <a href="https://wa.me/5493725430303?text=Hola%20ManzaDev%21%20Me%20interesa%20iniciar%20un%20proyecto." target="_blank" rel="noopener">3725430303</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:manzanellimario@gmail.com">manzanellimario@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-clock"></i></div>
+            <div>
+              <h4>Horario</h4>
+              <span>Lun–Vie: 9:00 – 20:00 (ARG)</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <h4>Ubicación</h4>
+              <span>Argentina 🇦🇷 · Trabajo remoto <i class="fas fa-globe"></i></span>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form" id="contact-form" data-netlify="true" name="contacto" novalidate>
+          <div class="form-group">
+            <label for="nombre">Nombre completo *</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Juan García" required />
+            <span class="error-msg" id="error-nombre"></span>
+          </div>
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="juan@empresa.com" required />
+            <span class="error-msg" id="error-email"></span>
+          </div>
+          <div class="form-group">
+            <label for="servicio">Servicio de interés *</label>
+            <select id="servicio" name="servicio" required>
+              <option value="">Seleccioná un servicio...</option>
+              <option value="web">Desarrollo Web</option>
+              <option value="mobile">App Móvil</option>
+              <option value="sistema">Sistema Empresarial</option>
+              <option value="ia">Inteligencia Artificial</option>
+              <option value="cloud">Cloud / DevOps</option>
+              <option value="otro">Otro</option>
+            </select>
+            <span class="error-msg" id="error-servicio"></span>
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Contanos tu proyecto *</label>
+            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Describí brevemente qué necesitás..." required></textarea>
+            <span class="error-msg" id="error-mensaje"></span>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
+            <i class="fas fa-paper-plane"></i> Enviar Consulta
+          </button>
+          <div class="form-success" id="form-success">
+            <i class="fas fa-check-circle"></i> ¡Mensaje enviado! Te contactamos pronto.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="logo.png" alt="ManzaDev" class="footer-logo" />
+          <p>Transformamos ideas en software que funciona. Calidad, velocidad y resultados reales.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://wa.me/5493725430303?text=Hola%20ManzaDev%21%20Me%20interesa%20iniciar%20un%20proyecto." aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Servicios</h4>
+          <ul>
+            <li><a href="#servicios">Desarrollo Web</a></li>
+            <li><a href="#servicios">Apps Móviles</a></li>
+            <li><a href="#servicios">Sistemas Empresariales</a></li>
+            <li><a href="#servicios">Inteligencia Artificial</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Empresa</h4>
+          <ul>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#proceso">Proceso</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-newsletter">
+          <h4>Novedades</h4>
+          <p>Suscribite para recibir tips de tecnología y ofertas exclusivas.</p>
+          <div class="newsletter-form">
+            <input type="email" id="newsletter-email" placeholder="tu@email.com" aria-label="Email newsletter"/>
+            <button id="newsletter-btn" aria-label="Suscribirse"><i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 ManzaDev. Todos los derechos reservados. | <strong>Versión 2026.4</strong></p>
+        <p>Hecho con <span class="heart">❤️</span> en Argentina</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== LEAD MAGNET MODAL ========== -->
+  <div id="lead-modal" class="modal-overlay hidden">
+    <div class="modal-content glass-card-modal">
+      <button id="close-modal" class="close-modal-btn">&times;</button>
+      <div class="modal-body">
+        <div class="modal-icon-gift">
+            <i class="fas fa-gift"></i>
+        </div>
+        <h2>¿Tenés una idea de App? 💡</h2>
+        <p>Descargá gratis nuestra <strong>Guía de Costos y Tiempos 2026</strong> para llevar tu proyecto al siguiente nivel.</p>
+        <form id="lead-form-modal">
+            <div class="input-group-modal">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Tu Nombre" required>
+            </div>
+            <div class="input-group-modal">
+                <i class="fab fa-whatsapp"></i>
+                <input type="tel" placeholder="Tu WhatsApp" required>
+            </div>
+            <button type="submit" class="cta-btn-modal">Obtener Guía Gratis</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== MANZA ASSISTANT WIDGET ========== -->
+  <div id="manza-assistant-container">
+    <button id="assistant-bubble" aria-label="Abrir Asistente" title="Abrir Asistente">
+      <div class="bubble-icon"><i class="fas fa-robot"></i></div>
+      <div class="pulse-ring"></div>
+    </button>
+    
+    <div id="assistant-window" class="hidden">
+      <div class="assistant-header">
+        <div class="header-info">
+          <div class="assistant-avatar">
+            <img src="logo.png" alt="ManzaDev logo">
+            <span class="status-dot"></span>
+          </div>
+          <div class="header-text">
+            <h3>ManzaAssistant</h3>
+            <p>En línea • IA para desarrolladores</p>
+          </div>
+        </div>
+        <button id="close-assistant" aria-label="Cerrar" title="Cerrar">
+            <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div id="chat-messages" class="chat-body"></div>
+      
+      <div class="chat-footer">
+        <div class="quick-replies">
+          <button class="quick-reply-btn" data-query="servicios">Servicios</button>
+          <button class="quick-reply-btn" data-query="presupuesto">Presupuesto</button>
+          <button class="quick-reply-btn" data-query="contacto">Contacto</button>
+        </div>
+        <form id="assistant-form">
+          <input type="text" id="assistant-input" placeholder="Escribe un mensaje..." autocomplete="off">
+          <button type="submit" id="send-msg-btn" title="Enviar mensaje">
+              <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="back-to-top" aria-label="Volver arriba">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
