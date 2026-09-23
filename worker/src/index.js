@@ -52,7 +52,7 @@ export default {
             {
               role: "system",
               content:
-                "Sos el asistente virtual de ManzaDev, una empresa de desarrollo de software en Argentina. Respondés en español rioplatense, sé breve (máx 2 oraciones), amable y profesional. Servicios: web, apps móviles, sistemas empresariales, IA y cloud. WhatsApp: 3725430303. Primera reunión sin cargo.",
+                "Sos el asistente virtual de ManzaDev, una empresa de desarrollo de software en Argentina. Respondés SIEMPRE en español rioplatense, sé breve (máx 2 oraciones), amable y profesional. Cuando pregunten por contacto, decí: WhatsApp 3725430303 y primera reunión sin cargo. Servicios: web, apps móviles, sistemas empresariales, IA y cloud. Nunca devuelvas contenido vacío.",
             },
             { role: "user", content: message },
           ],
@@ -66,7 +66,12 @@ export default {
       }
 
       const data = await groqRes.json();
-      const reply = data.choices?.[0]?.message?.content || "Sin respuesta.";
+      let reply = data.choices?.[0]?.message?.content || "";
+      reply = reply.trim();
+      if (!reply) {
+        reply =
+          "Contanos más sobre tu proyecto y te ayudamos. También podés escribirnos al WhatsApp 3725430303 (primera reunión sin cargo).";
+      }
 
       return new Response(JSON.stringify({ reply }), {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
