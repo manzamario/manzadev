@@ -1,4 +1,9 @@
 /* ========== CONFIGURATION & STATE ========== */
+// ⚠️ Reemplazá con tu clave de https://web3forms.com (es gratis)
+const WEB3FORMS_KEY = "e709edd7-8dce-42a9-9ef4-a01677ecdca4";
+// URL del Cloudflare Worker (proxy seguro - la API key NO va en la web)
+const AI_PROXY_URL = "https://manzadev-ai.manzanellimario.workers.dev";
+
 const CONFIG = {
   particles: {
     count: 60,
@@ -305,12 +310,18 @@ function initContactForm() {
       btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Enviando...';
       btn.disabled = true;
 
-      // Real Netlify Form Submission
+      // Web3Forms Submission (works on GitHub Pages)
       const formData = new FormData(form);
-      fetch("/", {
+      formData.append("access_key", WEB3FORMS_KEY);
+      formData.append("subject", "Nueva consulta desde ManzaDev");
+      formData.append("from_name", "ManzaDev Web");
+      fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString(),
+        body: formData,
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (!data.success) throw new Error(data.message);
       })
       .then(() => {
         form.reset();
@@ -449,19 +460,41 @@ function initManzaAssistant() {
         messagesContainer.appendChild(typing);
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
 
-        setTimeout(() => {
+        if (AI_PROXY_URL === "") {
+            // Fallback local mientras no hay Worker desplegado
+            setTimeout(() => {
+                typing.remove();
+                isTyping = false;
+                let response = "";
+                if (query.includes('hola')) response = "¡Hola! Un gusto saludarte. Soy el asistente de **ManzaDev**. ¿En qué puedo orientarte?";
+                else if (query.includes('servicio')) response = "Expertos en: **Web (Next.js), Mobile (React Native), IA y Sistemas**. ¿Cuál te interesa?";
+                else if (query.includes('presupuesto')) response = "Hacemos presupuestos a medida. ¡La primera reunión es **SIN CARGO**! ¿Te parece coordinar?";
+                else if (query.includes('contacto')) response = "Directo al WhatsApp: **3725430303**. O dejanos tu número y te contactamos.";
+                else response = "Excelente duda. En **ManzaDev** siempre buscamos la mejor arquitectura técnica. ¿Te gustaría profundizar?";
+                appendAssistantMsg(response);
+            }, 800);
+            return;
+        }
+
+        fetch(AI_PROXY_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ message: query })
+        })
+        .then(res => {
+            if (!res.ok) throw new Error("API error");
+            return res.json();
+        })
+        .then(data => {
             typing.remove();
             isTyping = false;
-            let response = "";
-            
-            if (query.includes('hola')) response = "¡Hola! Un gusto saludarte. Soy el asistente de **ManzaDev**. ¿En qué puedo orientarte?";
-            else if (query.includes('servicio')) response = "Expertos en: **Web (Next.js), Mobile (React Native), IA y Sistemas**. ¿Cuál te interesa?";
-            else if (query.includes('presupuesto')) response = "Hacemos presupuestos a medida. ¡La primera reunión es **SIN CARGO**! ¿Te parece coordinar?";
-            else if (query.includes('contacto')) response = "Directo al WhatsApp: **3725430303**. O dejanos tu número y te contactamos.";
-            else response = "Excelente duda. En **ManzaDev** siempre buscamos la mejor arquitectura técnica. ¿Te gustaría profundizar?";
-
-            appendAssistantMsg(response);
-        }, 1500);
+            appendAssistantMsg(data.reply);
+        })
+        .catch(() => {
+            typing.remove();
+            isTyping = false;
+            appendAssistantMsg("Disculpá, tuve un problema técnico. Escribinos al WhatsApp: **3725430303** 💬");
+        });
     }
 }
 
